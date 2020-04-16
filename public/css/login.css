@@ -1,0 +1,23 @@
+.div-login{
+    padding: 25%;
+}
+
+.div-btn-login{
+    padding: 1%;
+    text-align: right;
+}
+
+.btn-login{
+   width: 100px;
+   height: auto;
+}
+
+.div-error{
+    text-align: center;
+    padding: 1%;
+}
+
+.error{
+     
+     color: red;
+}
