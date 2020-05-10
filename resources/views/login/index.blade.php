@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    Welcome Account
+   Accounting
 @endsection
 
 @push('style')

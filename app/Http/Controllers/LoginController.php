@@ -10,6 +10,8 @@ class LoginController extends Controller
 {
     public function index()
     {
+        // $password = Hash::make('@Admin1234');
+        // echo $password,'<br>';
         return view('login.index');
     }
 
@@ -32,10 +34,17 @@ class LoginController extends Controller
                     'lname'=>$user->user_lastname,
                     'status' => $user->user_status
                 );
+                $user_status = $user->user_status;
+                $url = null;
+                if($user_status==9){
+                    $url = 'admin-dashboard';
+                }else if($user_status==0){
+                    $url = 'dashboard';
+                }
                 session()->put('user',$userArr);
                 return response()->json([
                     'status'=> 200,
-                    'url'=>"dashboard",
+                    'url'=> $url,
                 ]);
             }else{
                 return response()->json([

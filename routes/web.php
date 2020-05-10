@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'LoginController@index');
 
 Route::post('checklogin','LoginController@checklogin');
-Route::get('dashboard',function(){
+Route::get('dashboard','DashboardController@index');
+
+Route::get('admin-dashboard',function(){
     dd(session()->get("user"));
     // echo "Dashboard";
 });

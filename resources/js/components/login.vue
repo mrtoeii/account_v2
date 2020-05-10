@@ -3,7 +3,8 @@
         <div class="div-login">
             <div class="row">
                 <div class="col">
-                    <h3>Account</h3>
+                    <!-- <h3>Account</h3> -->
+                    <img class="login-image" v-bind:src="'./public/images/login/accounting.png'"  alt="" srcset="">
                 </div>
             </div>
             <div class="row">
@@ -51,7 +52,8 @@
                     if(result.data.status == 404 || result.data.status == 500){
                         this.error = result.data.msg              
                     }else{
-                        window.location ='dashboard'
+                        // console.log(result.data.url)
+                        window.location = result.data.url
                     }
                 }).catch((err) => {
                     console.log("Error : ",err);

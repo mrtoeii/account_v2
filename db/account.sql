@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2020 at 02:10 PM
+-- Generation Time: May 10, 2020 at 11:37 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,8 +42,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_username`, `user_password`, `user_firstname`, `user_lastname`, `user_status`, `user_remove_status`) VALUES
-(1, 'admin', '$2y$10$z0aGZFo0Lz2Y/XALyVMbzOK/oNmpvu3zUgrTiMfjqgkMNaGH6SdNG', 'Admin', 'Administrator', 9, 9),
-(2, 'arkkarachat', '$2y$10$z0aGZFo0Lz2Y/XALyVMbzOK/oNmpvu3zUgrTiMfjqgkMNaGH6SdNG', 'อัครชาติ', 'ศิริบุตร', 0, 0);
+(1, 'admin', '$2y$10$LE/5VfzWFmGD2SVFxTEWWOQlcfxb4kbDq7tmHXqWSSc4IjutkKkJq', 'Admin', 'Administrator', 9, 9),
+(2, 'arkkarachat', '$2y$10$LE/5VfzWFmGD2SVFxTEWWOQlcfxb4kbDq7tmHXqWSSc4IjutkKkJq', 'อัครชาติ', 'ศิริบุตร', 0, 0);
 
 --
 -- Indexes for dumped tables
