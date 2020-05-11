@@ -15,9 +15,13 @@
     @stack('script')
 </head>
 <body>
-    <div class="container">
-        @yield('content')
-    </div>
+
+    @if (session()->get('user'))
+        @include('user.header')
+    @else
+        
+    @endif
+    @yield('content')
 </body>
 <script src="{{asset('js/app.js')}}"></script>
 </html>

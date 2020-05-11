@@ -14,11 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'LoginController@index');
+Route::match(['get', 'post'],'checklogin','LoginController@checklogin');
 
-Route::post('checklogin','LoginController@checklogin');
-Route::get('dashboard','DashboardController@index');
+Route::group(['middleware'=>['userAuth']],function(){
+    Route::get('dashboard','DashboardController@index');
+    Route::get('logout','LoginController@logout');
 
-Route::get('admin-dashboard',function(){
-    dd(session()->get("user"));
-    // echo "Dashboard";
+});
+
+
+Route::group(['middleware'=>['adminAuth']],function(){
+    Route::get('admin-dashboard',function(){
+        dd(session()->get("user"));
+        // echo "Dashboard";
+    });
 });

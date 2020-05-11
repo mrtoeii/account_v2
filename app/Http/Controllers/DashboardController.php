@@ -8,6 +8,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-       return view('user.index');
+        // dd(session()->get('user'));
+        return view('user.index');
     }
 }

@@ -19,6 +19,8 @@ class LoginController extends Controller
     {
         // echo Hash::make('@Admin');
         // dd($request->all());
+        // echo 'username : ',$request->input('username');
+        // die;
         $username = $request->input('username');
         $password = $request->input('password');
 
@@ -28,20 +30,28 @@ class LoginController extends Controller
             ])->first();
         if($user){
             if (Hash::check($password, $user->user_password)) {
-                $userArr = array(
-                    'username'=>$user->user_username,
-                    'fname'=>$user->user_firstname,
-                    'lname'=>$user->user_lastname,
-                    'status' => $user->user_status
-                );
+               
                 $user_status = $user->user_status;
                 $url = null;
                 if($user_status==9){
                     $url = 'admin-dashboard';
+                    $adminArr = array(
+                        'username'=>$user->user_username,
+                        'status' => $user->user_status
+                    );
+                    session()->put('admin',$adminArr);
+
                 }else if($user_status==0){
                     $url = 'dashboard';
+                    $userArr = array(
+                        'username'=>$user->user_username,
+                        'fname'=>$user->user_firstname,
+                        'lname'=>$user->user_lastname,
+                        'status' => $user->user_status
+                    );
+                    session()->put('user',$userArr);
                 }
-                session()->put('user',$userArr);
+               
                 return response()->json([
                     'status'=> 200,
                     'url'=> $url,
@@ -55,8 +65,16 @@ class LoginController extends Controller
         }else{
             return response()->json([
                 'status'=> 404,
-                'msg'=>"Username not found!",
+                'msg'=>"Username or password incorrect",
             ]);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        if(session()->get('user')==null || session()->get('admin')==null){
+            return redirect('/');
         }
     }
 }
