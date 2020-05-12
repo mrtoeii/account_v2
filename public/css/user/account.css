@@ -1,0 +1,18 @@
+
+.div-btn-add-account, .header-table{
+    display: block;
+    padding-top: 20px;
+}
+.header-table{
+    font-size: 26px;
+}
+
+.btn-add-account{
+    float: right;
+    padding-left: 25px;
+    text-align: center;
+}
+
+.div-table-account{
+    padding-top: 20px;
+}

@@ -17,7 +17,14 @@ Route::get('/', 'LoginController@index');
 Route::match(['get', 'post'],'checklogin','LoginController@checklogin');
 
 Route::group(['middleware'=>['userAuth']],function(){
-    Route::get('dashboard','DashboardController@index');
+    Route::get('dashboard','user\DashboardController@index');
+
+    // account
+    Route::get('account','user\AccountController@index');
+    Route::get('account_form','user\AccountController@account_form');
+    Route::post('account_save','user\AccountController@account_save');
+
+    // logout
     Route::get('logout','LoginController@logout');
 
 });

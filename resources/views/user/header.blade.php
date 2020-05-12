@@ -1,6 +1,6 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        {{-- <a class="navbar-brand" href="#">Navbar</a>
         <button
             class="navbar-toggler"
             type="button"
@@ -11,14 +11,17 @@
             aria-label="Toggle navigation"
         >
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> --}}
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" >Home </a >
+                    <a class="nav-link" href="{{url('dashboard')}}" >หน้าแรก </a >
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url('account')}}" >รายรับรายจ่าย </a >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout">Logout</a>
+                    <a class="nav-link" href="{{url('logout')}}">ออกจากระบบ</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>

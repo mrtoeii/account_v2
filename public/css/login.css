@@ -1,7 +1,7 @@
 .div-login{
     padding: 5%;
-    padding-left: 30%;
-    padding-right: 30%;
+    padding-left: auto;
+    padding-right: auto;
 }
 
 .div-btn-login{
