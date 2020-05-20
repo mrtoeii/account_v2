@@ -16,7 +16,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     
-    
+    <link rel="stylesheet" href="{{asset('css/layout.css')}}">
     <title>@yield('title')</title>
     @stack('style')
     @stack('script')

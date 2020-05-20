@@ -15,9 +15,9 @@
     <form id="login_form" method="POST">
         <div class="container div-login">
             <div class="row">
-                <div class="col">
+                <div class="col div-logo-login">
                     <!-- <h3>Account</h3> -->
-                    <img class="login-image" src="{{asset('/images/login/accounting.png')}}"  alt="" srcset="">
+                    <img class="logo-login" src="{{asset('/images/login/accounting.png')}}"  alt="" srcset="">
                 </div>
             </div>
             <div class="row">
@@ -32,13 +32,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 div-error" id="div-error"></div>
+            
+            <div class="div-btn-login">
+                <button type="submit" id="btn-login" class="btn-login">Login</button>
             </div>
             <div class="row">
-                <div class="col-md-12 div-btn-login" id="">
-                    <button type="submit" id="btn-login" class="btn btn-primary btn-login">Login</button>
-                </div>
+                <div class="col-md-12 div-error" id="div-error"></div>
             </div>
         </div>
     </form>
