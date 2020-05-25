@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('checklogin','api\LoginController@checklogin');
+Route::get('index','api\AuthController@index');
+Route::post('checklogin','api\AuthController@checklogin');
