@@ -27,30 +27,39 @@ class LoginController extends Controller
         $user = DB::table('users')->where([
                 ['user_username',$username],
                 // ['user_remove_status',0]
-            ])->first();
+        ])->first();
         if($user){
             if (Hash::check($password, $user->user_password)) {
                
                 $user_status = $user->user_status;
                 $url = null;
-                if($user_status==9){
-                    $url = 'admin-dashboard';
-                    $adminArr = array(
-                        'username'=>$user->user_username,
-                        'status' => $user->user_status
-                    );
-                    session()->put('admin',$adminArr);
+                // if($user_status==9){
+                //     $url = 'admin-dashboard';
+                //     $adminArr = array(
+                //         'username'=>$user->user_username,
+                //         'status' => $user->user_status
+                //     );
+                //     session()->put('admin',$adminArr);
 
-                }else if($user_status==0){
-                    $url = 'dashboard';
-                    $userArr = array(
-                        'username'=>$user->user_username,
-                        'fname'=>$user->user_firstname,
-                        'lname'=>$user->user_lastname,
-                        'status' => $user->user_status
-                    );
-                    session()->put('user',$userArr);
-                }
+                // }else if($user_status==0){
+                //     $url = 'dashboard';
+                //     $userArr = array(
+                //         'username'=>$user->user_username,
+                //         'fname'=>$user->user_firstname,
+                //         'lname'=>$user->user_lastname,
+                //         'status' => $user->user_status
+                //     );
+                //     session()->put('user',$userArr);
+                // }
+                $url = 'dashboard';
+                $userArr = array(
+                    'username'=>$user->user_username,
+                    'fname'=>$user->user_firstname,
+                    'lname'=>$user->user_lastname,
+                    'status' => $user->user_status
+                );
+                session()->put('user',$userArr);
+
                
                 return response()->json([
                     'status'=> 200,

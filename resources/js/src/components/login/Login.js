@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import  {UserLogin } from '../../api/api'
 import './login.css';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-
+    const history = useHistory();
+    // if(localStorage.getItem('user')!=null){
+    //     localStorage.clear()
+    // }
     const checkLogin= async ()=>{
         // console.log(username)
         // console.log(password)
@@ -15,17 +19,34 @@ function Login() {
         }
 
         let result = await UserLogin(user)
-        console.log(result);
-
-        
+        // console.log(result);
+        if(result.status===200){
+            let user = {
+                username: result.username,
+                firstname: result.firstname,
+                lastname: result.lastname,
+                status: result.user_status
+            }
+            localStorage.setItem('user',JSON.stringify(user))
+            // console.log(user);
+            
+            // console.log('dashboard');
+            history.push('/dashboard')
+        }
         
     }
+
+    useEffect(() => {
+        if(localStorage.getItem('user')!=null){
+            history.push('/dashboard')
+        }
+    }, [])
 
     return (
         <div className="container div-login">
             <div className="row">
                 <div className="col-md-12 div-logo-login">
-                    <img src="./public/images/login/accounting.png"/>
+                    <img src="./images/login/accounting.png"/>
                 </div>
             </div>
             <div className="row">

@@ -1,28 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './components/login/Login'
+import Dashboard from './components/dashboard/Dashboard'
+import History from './helper/History'
+import PrivateRoute from './helper/PrivateRoute'
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,Redirect
 } from 'react-router-dom'
+const url = "/account_v2/"
+const routes = {
+    // login : `${url}`,
+    // dashboard : `${url}/dashboard`
+    login : '/',
+    dashboard : '/dashboard'
+}
 function App() {
-    const url = "/account_v2/"
+    
     return (
-       <Router >
+       <Router history={History}>
             <Switch>
-                <Route exact path={`${url}`}>
-                    <Login/>
-                </Route>
-                <Route path={`${url}/dasboard`}>
-                    <Login/>
-                </Route>
-                {/* <Route  path="/add">
-                    <Add/>  
-                </Route>
-                <Route  path="/edit/:id">
-                    <Edit/>  
-                </Route> */}
+                {/* <Redirect exact from="/" to={routes.login}></Redirect> */}
+                <Route exact path={routes.login} component={Login} />
+                <PrivateRoute  path={routes.dashboard}  component={Dashboard} />
             </Switch>      
         </Router>
     );

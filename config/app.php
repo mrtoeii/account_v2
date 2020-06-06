@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'token'=>'8A677FC8112A38BE684AB29AE3B3F',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
 
     ],
 
